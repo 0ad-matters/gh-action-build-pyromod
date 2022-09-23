@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-
-      - uses: 0ad/0ad-bin-nodata
+      - uses:  0ad-matters/gh-action-build-pyromod
         id: build-pyromod
 ```
