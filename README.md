@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-      - uses:  0ad-matters/gh-action-build-pyromod
+      - uses:  0ad-matters/gh-action-build-pyromod@trunk
         with:
           name: <mod name>
           version: <mod ver>
