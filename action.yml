@@ -1,0 +1,19 @@
+name: 'Build a 0ad pyromod file'
+description: 'Build a 0ad pyromod file'
+inputs:
+  name:
+    description: "name of the mod"
+    required: true
+    default: ''
+  version:
+    description: "mod version"
+    required: true
+    default: ''
+
+runs:
+  using: docker
+  image: Dockerfile
+
+branding:
+  icon: package
+  color: gray-dark
