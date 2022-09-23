@@ -27,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: echo "MOD_VERSION=${MOD_VERSION:1}" >> $GITHUB_ENV
-    - uses:  0ad-matters/gh-action-build-pyromod@trunk
+    - uses:  0ad-matters/gh-action-build-pyromod@v1
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
