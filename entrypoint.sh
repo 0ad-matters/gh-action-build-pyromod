@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ev
 
-OUTPUT_DIR=../github/workspace/output
+OUTPUT_DIR=/github/workspace/output
 mkdir -m 777 -p $OUTPUT_DIR
 OUTPUT_FILE="${OUTPUT_DIR}/${INPUT_NAME}-${INPUT_VERSION}.pyromod"
 
