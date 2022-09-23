@@ -17,5 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses:  0ad-matters/gh-action-build-pyromod
+        with:
+          name: <mod name>
+          version: <mod ver>
         id: build-pyromod
 ```
