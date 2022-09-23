@@ -7,10 +7,12 @@ pyromod](https://trac.wildfiregames.com/wiki/Modding_Guide#Distributingyourmods)
 ## Usage
 
 ```yaml
+name: Build Pyromod
+
 on: [push]
 
 jobs:
-  build-deb:
+  build-pyromod:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
