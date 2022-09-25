@@ -2,13 +2,29 @@
 
 This is a [GitHub Action](https://github.com/features/actions) that
 will build a [0ad
-pyromod](https://trac.wildfiregames.com/wiki/Modding_Guide#Distributingyourmods)
+pyromod](https://trac.wildfiregames.com/wiki/Modding_Guide#Distributingyourmods).
 
 ## Usage
+
+This action requires that the root directory of your mod is in your
+repository root (i.e., your 'mod.json' is located in the repository
+root).
 
 In this case, when a new a release and tag is created (if the tag
 starts with a 'v'), the built mod will get uploaded to the release
 page, along with a corresponding sha256sum.
+
+This file needs to be placed in
+
+    <your_repo_root>/.github/workflows/<filename>.yml
+
+(where `<filename>` can be anything you like)
+
+The [release
+action](https://github.com/0ad-matters/gh-action-build-pyromod/blob/trunk/README.md)
+used in the example below is a separate action (not maintained by this
+project) and can be replaced by a different release action if you
+like.
 
 ```yaml
 name: Build Pyromod
@@ -46,3 +62,10 @@ jobs:
         omitNameDuringUpdate: True
         omitBodyDuringUpdate: True
 ```
+
+## Additional Notes
+
+The docker image used by this action is published from
+[0ad-matters/0ad-bin-nodata](https://github.com/0ad-matters/0ad-bin-nodata)
+and pulled from
+[andy5995/0ad-bin-nodata](https://hub.docker.com/repository/docker/andy5995/0ad-bin-nodata).
