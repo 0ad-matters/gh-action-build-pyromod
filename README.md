@@ -38,7 +38,7 @@ jobs:
   build-pyromod:
     runs-on: ubuntu-latest
     env:
-      MOD_NAME: <mod-name>
+      MOD_NAME: ${GITHUB_REPOSITORY#*/}
       MOD_VERSION: ${{ github.ref_name }}
     steps:
     - uses: actions/checkout@v3
@@ -49,9 +49,9 @@ jobs:
         version: ${{ env.MOD_VERSION }}
       id: build-pyromod
     - run: |
-        OUTPUT_FILE="$MOD_NAME-${MOD_VERSION}.pyromod"
+        OUTPUT_FILE="$MOD_NAME-$MOD_VERSION.pyromod"
         cd output
-        sha256sum $OUTPUT_FILE > ${OUTPUT_FILE}.sha256sum
+        sha256sum $OUTPUT_FILE > $OUTPUT_FILE.sha256sum
     - name: Release PyroMod
       uses: ncipollo/release-action@v1
       with:
