@@ -42,22 +42,24 @@ jobs:
       MOD_VERSION: ${{ github.ref_name }}
     steps:
     - uses: actions/checkout@v3
-    - run: |
+    - name: Massage Variables
+      run: |
         # remove "<owner>/" from repository string
         echo "MOD_NAME=${MOD_NAME#*/}" >> $GITHUB_ENV
         # remove 'v' from version string
         echo "MOD_VERSION=${MOD_VERSION:1}" >> $GITHUB_ENV
-    - uses:  0ad-matters/gh-action-build-pyromod@v1
+    - uses:  0ad-matters/gh-action-build-pyromod@v1.1
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
       id: build-pyromod
-    - run: |
+    - name: Create sha256sum
+      run:  |
         OUTPUT_FILE="$MOD_NAME-$MOD_VERSION.pyromod"
         cd output
         sha256sum $OUTPUT_FILE > $OUTPUT_FILE.sha256sum
     - name: Release PyroMod
-      uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@v1.1
       with:
         allowUpdates: True
         prerelease: False
