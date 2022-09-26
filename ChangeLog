@@ -2,6 +2,8 @@
 
   * remove .github* from the built pyromod file
   * release v1.1
+  * fix docs related to the release action
+  * release v1.2
 
 2022-09-24
 

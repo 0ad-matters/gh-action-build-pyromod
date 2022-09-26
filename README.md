@@ -20,9 +20,8 @@ This file needs to be placed in
 
 (where `<filename>` can be anything you like)
 
-The [release
-action](https://github.com/0ad-matters/gh-action-build-pyromod/blob/trunk/README.md)
-used in the example below is a separate action (not maintained by this
+The [release action](https://github.com/ncipollo/release-action) used
+in the example below is a separate action (not maintained by this
 project) and can be replaced by a different release action if you
 like.
 
@@ -48,7 +47,7 @@ jobs:
         echo "MOD_NAME=${MOD_NAME#*/}" >> $GITHUB_ENV
         # remove 'v' from version string
         echo "MOD_VERSION=${MOD_VERSION:1}" >> $GITHUB_ENV
-    - uses:  0ad-matters/gh-action-build-pyromod@v1.1
+    - uses:  0ad-matters/gh-action-build-pyromod@v1.2
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
@@ -59,7 +58,7 @@ jobs:
         cd output
         sha256sum $OUTPUT_FILE > $OUTPUT_FILE.sha256sum
     - name: Release PyroMod
-      uses: ncipollo/release-action@v1.1
+      uses: ncipollo/release-action@v1
       with:
         allowUpdates: True
         prerelease: False
