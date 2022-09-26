@@ -14,6 +14,7 @@ su user0ad --command  "/home/user0ad/binaries/system/pyrogenesis  \
     -archivebuild-output=$OUTPUT_FILE    \
     -archivebuild-compress"
 
-zip -d "$OUTPUT_FILE" .github*
-
 test -f "$OUTPUT_FILE"
+zip -d "$OUTPUT_FILE" ".github*"
+
+
