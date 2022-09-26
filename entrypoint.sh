@@ -12,4 +12,8 @@ su user0ad --command  "/home/user0ad/binaries/system/pyrogenesis  \
     -archivebuild-output=$OUTPUT_FILE    \
     -archivebuild-compress"
 
+# For some reason this delay might be needed on small mods otherwise
+# the "test" will fail.
+sleep 1s
+
 test -f "$OUTPUT_FILE"
