@@ -38,12 +38,16 @@ jobs:
   build-pyromod:
     runs-on: ubuntu-latest
     env:
-      MOD_NAME: ${GITHUB_REPOSITORY#*/}
+      MOD_NAME: ${{ github.repository }}
       MOD_VERSION: ${{ github.ref_name }}
     steps:
     - uses: actions/checkout@v3
-    - run: echo "MOD_VERSION=${MOD_VERSION:1}" >> $GITHUB_ENV
-    - uses:  0ad-matters/gh-action-build-pyromod@v1
+    - run: |
+        # remove "<owner>/" from repository string
+        echo "MOD_NAME=${MOD_NAME#*/}" >> $GITHUB_ENV
+        # remove 'v' from version string
+        echo "MOD_VERSION=${MOD_VERSION:1}" >> $GITHUB_ENV
+    - uses:  0ad-matters/gh-action-build-pyromod@trunk
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
