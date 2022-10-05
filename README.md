@@ -47,7 +47,7 @@ jobs:
         echo "MOD_NAME=${MOD_NAME#*/}" >> $GITHUB_ENV
         # remove 'v' from version string
         echo "MOD_VERSION=${MOD_VERSION:1}" >> $GITHUB_ENV
-    - uses:  0ad-matters/gh-action-build-pyromod@v1.2
+    - uses:  0ad-matters/gh-action-build-pyromod@v0.0.26.3
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
