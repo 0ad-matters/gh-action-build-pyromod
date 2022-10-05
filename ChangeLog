@@ -1,3 +1,10 @@
+2022-10-05
+
+  * reduce size of action download
+  * use package_mod as '-mod=' argument to optimize textures and
+  animations better (see https://github.com/StanleySweet/package_mod)
+  Thanks @StanleySweet
+
 2022-09-25
 
   * remove .github* from the built pyromod file
