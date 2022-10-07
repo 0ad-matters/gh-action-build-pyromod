@@ -1,3 +1,9 @@
+2022-10-07
+
+  * Use proper versioning
+  * All 1.x.x versions will point back to v1
+  * release v1.2.1
+
 2022-10-05
 
   * reduce size of action download
