@@ -1,0 +1,15 @@
+name: Keep the versions up-to-date
+# https://github.com/marketplace/actions/actions-tagger
+# https://github.com/actions/toolkit/blob/master/docs/action-versioning.md
+
+on:
+  release:
+    types: [published, edited]
+
+jobs:
+  actions-tagger:
+    runs-on: windows-latest
+    steps:
+      - uses: Actions-R-Us/actions-tagger@latest
+        with:
+          publish_latest_tag: true
