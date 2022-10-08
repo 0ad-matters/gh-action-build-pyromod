@@ -37,26 +37,24 @@ name: Build Pyromod
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - v**
   pull_request:
     branches:
-      - master
+      - main
+
+env:
+  MOD_NAME: <your-mod>
 
 jobs:
   build-pyromod:
-    if: ${{ github.ref != 'refs/heads/trunk' && github.ref_type != 'tag' }}
+    if: ${{ github.ref_type != 'tag' }}
     runs-on: ubuntu-latest
     env:
-      MOD_NAME: ${{ github.repository }}
       MOD_VERSION: ${{ github.sha }}
     steps:
     - uses: actions/checkout@v3
-    - name: Massage Variables
-      run: |
-        # remove "<owner>/" from repository string
-        echo "MOD_NAME=${MOD_NAME#*/}" >> $GITHUB_ENV
     - uses:  0ad-matters/gh-action-build-pyromod@v1
       with:
         name: ${{ env.MOD_NAME }}
@@ -79,13 +77,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: Massage Variables
       run: |
-        # remove "<owner>/" from repository string
-        echo "MOD_NAME=${MOD_NAME#*/}" >> $GITHUB_ENV
-        # remove 'v' from version string
         echo "MOD_VERSION=${MOD_VERSION:1}" >> $GITHUB_ENV
     - uses:  0ad-matters/gh-action-build-pyromod@v1
       with:
-        name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
       id: build-pyromod
     - name: Create sha256sum
