@@ -9,6 +9,10 @@ inputs:
     description: "mod version"
     required: true
     default: ''
+  directory:
+    description: "relative path to your mod.json file"
+    required: false
+    default: '.'
 
 runs:
   using: docker

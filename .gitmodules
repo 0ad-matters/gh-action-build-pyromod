@@ -1,0 +1,3 @@
+[submodule "test/community-maps-2"]
+	path = test/community-maps-2
+	url = https://github.com/0ad-matters/community-maps-2
