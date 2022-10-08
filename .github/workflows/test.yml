@@ -12,7 +12,7 @@ env:
   MOD_NAME: community-maps-2
 
 jobs:
-  build-pyromod:
+  test:
     runs-on: ubuntu-latest
     env:
       MOD_VERSION: ${{ github.sha }}
@@ -25,13 +25,11 @@ jobs:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
         directory: 'test/${{ env.MOD_NAME }}'
-      id: build-pyromod
     - uses:  0ad-matters/gh-action-build-pyromod@trunk
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
         directory: 'test/${{ env.MOD_NAME }}'
-      id: build-pyromod
     #- name: Upload Artifacts
       ## Uploads artifacts (combined into a zip file) to the workflow output page
       #uses: actions/upload-artifact@v3
