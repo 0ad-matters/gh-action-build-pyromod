@@ -17,6 +17,6 @@ su user0ad --command "/home/user0ad/usr/bin/pyrogenesis  \
     -archivebuild-compress"
 
 test -f "$OUTPUT_FILE"
-zip -d "$OUTPUT_FILE" ".github*"
+zip -d "$OUTPUT_FILE" ".git*"
 
 
