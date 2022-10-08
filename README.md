@@ -6,9 +6,9 @@ pyromod](https://trac.wildfiregames.com/wiki/Modding_Guide#Distributingyourmods)
 
 ## Usage
 
-This action requires that the root directory of your mod is in your
-repository root (i.e., your 'mod.json' is located in the repository
-root).
+If your mod is not in the root directory of your repository, you can
+add the 'directory' argument (see option table below) after 'with:' to
+specify the relative path.
 
 The example shown below has two separate jobs:
 
