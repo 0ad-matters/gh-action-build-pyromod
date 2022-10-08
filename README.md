@@ -10,9 +10,15 @@ This action requires that the root directory of your mod is in your
 repository root (i.e., your 'mod.json' is located in the repository
 root).
 
-In this case, when a new a release and tag is created (if the tag
-starts with a 'v'), the built mod will get uploaded to the release
-page, along with a corresponding sha256sum.
+The example shown below has two separate jobs:
+
+1. When there is a push to the default branch, or when a pull request
+is opened or updated, the pyromod is built and is uploaded to the
+workflow output page.
+
+2. When a new a new tag is created (if the tag starts with a 'v'), the
+built mod will get uploaded to the release page, along with a
+corresponding sha256sum.
 
 This file needs to be placed in
 
@@ -30,11 +36,41 @@ name: Build Pyromod
 
 on:
   push:
+    branches:
+      - master
     tags:
       - v**
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build-pyromod:
+    if: ${{ github.ref != 'refs/heads/trunk' && github.ref_type != 'tag' }}
+    runs-on: ubuntu-latest
+    env:
+      MOD_NAME: ${{ github.repository }}
+      MOD_VERSION: ${{ github.sha }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Massage Variables
+      run: |
+        # remove "<owner>/" from repository string
+        echo "MOD_NAME=${MOD_NAME#*/}" >> $GITHUB_ENV
+    - uses:  0ad-matters/gh-action-build-pyromod@v1
+      with:
+        name: ${{ env.MOD_NAME }}
+        version: ${{ env.MOD_VERSION }}
+      id: build-pyromod
+    - name: Upload Artifacts
+      # Uploads artifacts (combined into a zip file) to the workflow output page
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ env.MOD_NAME }}-${{ env.MOD_VERSION }}
+        path: "output/${{ env.MOD_NAME }}*.*"
+
+  release-pyromod:
+    if: ${{ github.ref_type == 'tag' }}
     runs-on: ubuntu-latest
     env:
       MOD_NAME: ${{ github.repository }}
