@@ -99,7 +99,17 @@ jobs:
         omitBodyDuringUpdate: True
 ```
 
+## Option table
+
+| name | required | default |
+|----------|--------|------|
+| name | true | '' |
+| version | true | '' |
+| directory (where mod.json is located | false | '.' |
+
 ## Additional Notes
+
+Option table
 
 The docker image used by this action is published from
 [0ad-matters/0ad-bin-nodata](https://github.com/0ad-matters/0ad-bin-nodata)
