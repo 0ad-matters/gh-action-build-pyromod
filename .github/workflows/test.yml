@@ -3,10 +3,10 @@ name: Test Action
 on:
   push:
     branches:
-      - main
+      - trunk
   pull_request:
     branches:
-      - main
+      - trunk
 
 env:
   MOD_NAME: community-maps-2
