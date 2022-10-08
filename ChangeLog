@@ -2,6 +2,7 @@
 
   * Add optional 'directory' argument
   * release v1.3.0
+  * remove '.git*' instead of '.github*' from the resulting pyromod
 
 2022-10-07
 

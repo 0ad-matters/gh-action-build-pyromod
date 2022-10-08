@@ -55,7 +55,7 @@ jobs:
       MOD_VERSION: ${{ github.sha }}
     steps:
     - uses: actions/checkout@v3
-    - uses:  0ad-matters/gh-action-build-pyromod@v1
+    - uses: 0ad-matters/gh-action-build-pyromod@v1
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
