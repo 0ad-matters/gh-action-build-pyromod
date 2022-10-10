@@ -71,7 +71,6 @@ jobs:
     if: ${{ github.ref_type == 'tag' }}
     runs-on: ubuntu-latest
     env:
-      MOD_NAME: ${{ github.repository }}
       MOD_VERSION: ${{ github.ref_name }}
     steps:
     - uses: actions/checkout@v3
