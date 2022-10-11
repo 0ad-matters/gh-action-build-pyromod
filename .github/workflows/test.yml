@@ -27,7 +27,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: true
-    - uses: 0ad-matters/gh-action-build-pyromod@${{ github.head_ref }}
+    - uses: 0ad-matters/gh-action-build-pyromod@delay
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
@@ -42,7 +42,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: true
-    - uses: 0ad-matters/gh-action-build-pyromod@${{ github.head_ref }}
+    - uses: 0ad-matters/gh-action-build-pyromod@delay
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
