@@ -33,20 +33,4 @@ jobs:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
         directory: 'test/${{ env.MOD_NAME }}'
-
-  test-xiiiad:
-    runs-on: ubuntu-latest
-    env:
-      MOD_NAME: xiiiad
-      MOD_VERSION: ${{ github.sha }}
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: true
-    - name: Use action from self
-      uses: ./
-      with:
-        name: ${{ env.MOD_NAME }}
-        version: ${{ env.MOD_VERSION }}
-        directory: 'test/${{ env.MOD_NAME }}'
-        remove_from_pyromod: '/art/textures/ui/session/portraits/* /art/textures/skins/skeletal/eastern/*'
+        remove_from_pyromod: '/maps/random/* /.git* art/particles/*'
