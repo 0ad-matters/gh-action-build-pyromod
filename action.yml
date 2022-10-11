@@ -13,6 +13,10 @@ inputs:
     description: "relative path to your mod.json file"
     required: false
     default: '.'
+  remove_from_pyromod:
+    description: "list of files or directories to remove, each separated by a space"
+    required: false
+    default: ''
 
 runs:
   using: docker

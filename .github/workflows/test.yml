@@ -49,3 +49,4 @@ jobs:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
         directory: 'test/${{ env.MOD_NAME }}'
+        remove_from_pyromod: '/art/textures/ui/session/portraits/* /art/textures/skins/skeletal/eastern/*'

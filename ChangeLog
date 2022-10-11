@@ -2,6 +2,10 @@
 
   * release v1.3.1
 
+2022-10-11
+
+  * add optional 'remove_from_pyromod' argument
+
 2022-10-08
 
   * Add optional 'directory' argument
