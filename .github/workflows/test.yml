@@ -8,13 +8,11 @@ on:
     branches:
       - trunk
 
-env:
-  MOD_NAME: community-maps-2
-
 jobs:
-  test:
+  test-community-maps-2:
     runs-on: ubuntu-latest
     env:
+      MOD_NAME: community-maps-2
       MOD_VERSION: ${{ github.sha }}
     steps:
     - uses: actions/checkout@v3
@@ -29,14 +27,25 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: true
-    - uses: 0ad-matters/gh-action-build-pyromod@trunk
+    - name: Use action from self
+      uses: ./
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
         directory: 'test/${{ env.MOD_NAME }}'
-    #- name: Upload Artifacts
-      ## Uploads artifacts (combined into a zip file) to the workflow output page
-      #uses: actions/upload-artifact@v3
-      #with:
-        #name: ${{ env.MOD_NAME }}-${{ env.MOD_VERSION }}
-        #path: "output/${{ env.MOD_NAME }}*.*"
+
+  test-xiiiad:
+    runs-on: ubuntu-latest
+    env:
+      MOD_NAME: xiiiad
+      MOD_VERSION: ${{ github.sha }}
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Use action from self
+      uses: ./
+      with:
+        name: ${{ env.MOD_NAME }}
+        version: ${{ env.MOD_VERSION }}
+        directory: 'test/${{ env.MOD_NAME }}'

@@ -14,9 +14,7 @@ su user0ad --command "/home/user0ad/usr/bin/pyrogenesis  \
     -mod=package_mod   \
     -archivebuild=$INPUT_DIRECTORY  \
     -archivebuild-output=$OUTPUT_FILE    \
-    -archivebuild-compress"
+    -archivebuild-compress" \
+    && test -f "$OUTPUT_FILE"
 
-test -f "$OUTPUT_FILE"
 zip -d "$OUTPUT_FILE" ".git*"
-
-
