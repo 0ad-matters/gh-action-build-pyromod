@@ -18,3 +18,10 @@ su user0ad --command "/home/user0ad/usr/bin/pyrogenesis  \
     && test -f "$OUTPUT_FILE"
 
 zip -d "$OUTPUT_FILE" ".git*"
+
+for item in $INPUT_REMOVE_FROM_PYROMOD; do
+  if [ -z "${item##*.git*}" ]; then
+    continue
+  fi
+  zip -d "$OUTPUT_FILE" "$item"
+done

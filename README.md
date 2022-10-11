@@ -100,11 +100,19 @@ jobs:
 
 ## Option table
 
-| name | required | default |
-|----------|--------|------|
-| name | true | '' |
-| version | true | '' |
-| directory (where mod.json is located | false | '.' |
+| name | required | description | default |
+|----------|--------|-------------|--------|
+| name | true | | |
+| version | true | | |
+| directory | false | relative path to your mod.json file | '.' |
+| remove_from_pyromod | false | list of files or directories to remove, each separated by a space (wildcards ok) | |
+
+Note that this action will remove '.git*' from the pyromod by default
+and doesn't need to be added to the 'remove_from_pyromod' string.
+
+remove_from_pyromod example:
+
+    remove_from_pyromod: 'foo bar /package.json /.*'
 
 ## Additional Notes
 
