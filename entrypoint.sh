@@ -13,7 +13,7 @@ mkdir -m 777 -p $OUTPUT_DIR
 # Set the output file path
 OUTPUT_FILE="$OUTPUT_DIR/$INPUT_NAME-$INPUT_VERSION.pyromod"
 
-# Run pyrogenesis command as non-root user
+# pyrogenesis won't run this as root. run as non-root user
 su user0ad --command "/home/user0ad/usr/bin/pyrogenesis \
     -mod=package_mod \
     -archivebuild=$INPUT_DIRECTORY \
