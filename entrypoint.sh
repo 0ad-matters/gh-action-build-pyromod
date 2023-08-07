@@ -10,7 +10,7 @@ fi
 OUTPUT_DIR=/github/workspace/output
 mkdir -m 777 -p $OUTPUT_DIR
 
-# Set the output file path
+# Set the output file path/filename
 OUTPUT_FILE="$OUTPUT_DIR/$INPUT_NAME-$INPUT_VERSION.pyromod"
 
 # pyrogenesis won't run this as root. run as non-root user
