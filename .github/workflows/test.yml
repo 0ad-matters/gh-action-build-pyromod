@@ -15,7 +15,7 @@ jobs:
       MOD_NAME: community-maps-2
       MOD_VERSION: ${{ github.sha }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
     - uses: 0ad-matters/gh-action-build-pyromod@v1
@@ -24,7 +24,7 @@ jobs:
         version: ${{ env.MOD_VERSION }}
         directory: 'test/${{ env.MOD_NAME }}'
     - run: rm -rf /output/*
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
     - name: Use action from self
