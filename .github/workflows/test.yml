@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: true
-    - uses: 0ad-matters/gh-action-build-pyromod@v1
+    - uses: 0ad-matters/gh-action-build-pyromod@v2
       with:
         name: ${{ env.MOD_NAME }}
         version: ${{ env.MOD_VERSION }}
