@@ -1,3 +1,7 @@
+2026-10-07
+
+  * don't fail when the mod directory has no .git* files
+
 2025-02-24
 
   * release v2 (update for 0ad 0.27.0)

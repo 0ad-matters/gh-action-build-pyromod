@@ -34,3 +34,13 @@ jobs:
         version: ${{ env.MOD_VERSION }}
         directory: 'test/${{ env.MOD_NAME }}'
         remove_from_pyromod: '/maps/random/* /.git* art/particles/*'
+    - name: Copy the mod without its .git files
+      run: |
+        cp -r "test/$MOD_NAME" no-git-mod
+        find no-git-mod -name '.git*' -prune -exec rm -rf {} +
+    - name: Use action from self on a mod with no .git files
+      uses: ./
+      with:
+        name: ${{ env.MOD_NAME }}
+        version: no-git
+        directory: no-git-mod

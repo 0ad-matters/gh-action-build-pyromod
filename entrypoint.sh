@@ -21,8 +21,9 @@ su user0ad --command "/home/user0ad/usr/bin/pyrogenesis \
     -archivebuild-compress" \
     && test -f "$OUTPUT_FILE"
 
-# Remove git-related files from the output file
-zip -d "$OUTPUT_FILE" ".git*"
+# Remove git-related files from the output file. zip -d exits 12 when
+# nothing matches, as for a mod directory with no .git* files.
+zip -d "$OUTPUT_FILE" ".git*" || [ $? -eq 12 ]
 
 # Remove additional specified files from the output file
 for item in $INPUT_REMOVE_FROM_PYROMOD; do
