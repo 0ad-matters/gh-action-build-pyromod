@@ -1,6 +1,7 @@
 2026-10-07
 
   * don't fail when the mod directory has no .git* files
+  * build with 0ad 0.28.0
 
 2025-02-24
 
